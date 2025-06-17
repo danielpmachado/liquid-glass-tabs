@@ -3,7 +3,6 @@ import {
   FlatList,
   Image,
   Modal,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
@@ -52,7 +51,8 @@ export default function PhotoGallery() {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container}>
+      <Text style={styles.headerTitle}>Image Gallery</Text>
       <FlatList
         data={images}
         keyExtractor={(item) => item.id}
@@ -88,7 +88,7 @@ export default function PhotoGallery() {
           )}
         </View>
       </Modal>
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 
@@ -99,6 +99,12 @@ const styles = StyleSheet.create({
   },
   list: {
     padding: 10,
+  },
+  headerTitle: {
+    marginTop: 70,
+    marginHorizontal: 10,
+    fontSize: 24,
+    fontWeight: 700,
   },
   card: {
     marginBottom: 20,
